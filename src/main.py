@@ -3,10 +3,19 @@ import random
 import time
 from selenium import webdriver
 
+def range(limit):
+    path = "/html/body/div/div[2]/form/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/span/div/label["+str(getrand(1,limit))+"]/div[2]/div/div/div[3]/div"
+    return path
+def single(limit):
+    return "/html/body/div/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span/div/div["+str(getrand(1,limit))+"]/label/div/div[1]/div/div[3]/div"
+def multiple(limit):
+    return "/html/body/div/div[2]/form/div[2]/div/div[2]/div[6]/div/div/div[2]/div[1]/div["+str(getrand(1,limit))+"]/label/div/div[1]/div[2]"
+
+
 def getrand(a,b):
     return random.randint(a,b)
 
-for _ in range(0,100):
+for _ in range(0,10):
     url = "https://docs.google.com/forms/d/e/1FAIpQLScHRpVNbu5qYx7-a1IrD6aTSd_BvilCS_j5iB5Q0ZpSDtkiXw/viewform"
     options = webdriver.ChromeOptions()
     options.add_argument("no-sandbox")
